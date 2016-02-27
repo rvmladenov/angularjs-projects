@@ -1,0 +1,13 @@
+{
+  "name": "Ads Angular Project",
+  "version": "0.0.1",
+  "homepage": "https://github.com/rvmladenov/Ads-Project-AngularJS",
+  "authors": [
+    "rvm"
+  ],
+  "description": "Personal AngularJS Project",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "directory": "./../bower_components/"
+}

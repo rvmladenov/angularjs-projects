@@ -1,0 +1,72 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+<div class="col-sm-12 col-xs-12">
+  <div ng-show="!hasRecords">Nothing found. Try searching using some different search criteria</div>
+  <div ng-show="showPagination">
+    <pagination
+      page="startPage"
+      ng-model="currentPage"
+      total-items="adsData.numItems"
+      ng-change="pageChanged()"
+      items-per-page="pageSize"
+      ></pagination>
+  </div>
+
+  <div data-ng-repeat="ad in adsData.ads">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <span>{{ad.title}}</span>
+          <span class="pull-right">{{ad.date| date:'dd-MMM-yyyy'}}</span>
+        </h3>
+      </div>
+      <div class="panel-body">
+
+
+        <div class="col-sm-8">
+          <div class="col-sm-3 panel-image">
+            <img data-ng-src="{{ad.imageDataUrl}}" src="images/no-image.png" class="img-responsive"/>
+          </div>
+          <div class="col-sm-9">
+            <div class="row">
+              <div class="col-sm-2">Category:</div>
+              <div class="col-sm-10">{{ad.categoryName}}</div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2">Town:</div>
+              <div class="col-sm-10">{{ad.townName}}</div>
+            </div>
+            <div class="well">{{ad.text}}</div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="well col-sm-12">{{ad.status | adsStatusFilter}}</div>
+
+          <button ng-click="deactivateAd(ad)" ng-show="isWaitingOrPublishedStatus(ad)" class="btn btn-info btn-block">
+            Deactivate
+          </button>
+          <button ng-click="editAd(ad.id)" ng-show="!isWaitingOrPublishedStatus(ad)" class="btn btn-info btn-block">
+            Edit
+          </button>
+          <button ng-click="publishAgainAd(ad)" ng-show="!isWaitingOrPublishedStatus(ad)"
+                  class="btn btn-info btn-block">Publish Again
+          </button>
+          <button ng-click="deleteAd(ad)" ng-show="!isWaitingOrPublishedStatus(ad)" class="btn btn-info btn-danger btn-block">
+            Delete
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="col-md-12" data-ng-show="showPagination">
+  <pagination
+    page="startPage"
+    ng-model="currentPage"
+    total-items="adsData.numItems"
+    ng-change="pageChanged()"
+    items-per-page="pageSize"
+    ></pagination>
+</div>

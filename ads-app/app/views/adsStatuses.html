@@ -1,0 +1,10 @@
+<div class="list-group">
+  <h3 class="list-group-item-heading">My Ads</h3>
+
+  <div ng-class="!selectedStatus ? 'list-group-item active' : 'list-group-item'" data-ng-click="filterByStatus(null)">
+    All
+  </div>
+  <div ng-class="(userStats && selectedStatus == status) ? 'list-group-item active' : 'list-group-item'"
+       data-ng-click="filterByStatus(status)" data-ng-repeat="status in userStats">{{status}}
+  </div>
+</div>

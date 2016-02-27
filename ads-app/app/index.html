@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+  <!-- build:css(.tmp) styles/styles.css -->
+  <link rel="stylesheet" href="styles/bootstrap.theme.flatly.min.css">
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <!-- endbuild -->
+</head>
+<body data-ng-app="adsProjectAngularJsApp" data-ng-controller="MainController">
+
+<header data-ng-include="headerLayout" data-ng-class="isUserAdmin() ? 'admin admin-header navbar navbar-default navbar-static-top' : 'navbar navbar-default navbar-static-top'"></header>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Application content -->
+<div data-ng-class="isUserAdmin() ? 'admin container' : 'container'" ng-cloak>
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+  <div class="col-md-2">
+    <left-sidebar-directive ng-hide="fakeIntro"></left-sidebar-directive>
+  </div>
+
+  <div ng-hide="fakeIntro" data-ng-view="" class="col-md-10 nopadding"></div>
+  <div ng-show="fakeIntro"><img src="images/loading.gif" alt="loading" /></div>
+</div>
+
+<footer data-ng-include="footerLayout" class="footer text-center"></footer>
+
+<!-- Activate the html5 fixes -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<![endif]-->
+
+<!-- Vendors -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+
+<!-- App -->
+<script src="scripts/app.js"></script>
+
+<!-- Filters -->
+<script src="scripts/filters/adsStatusFilter.js"></script>
+
+<!-- Controllers -->
+<script src="scripts/controllers/main-controller.js"></script>
+<script src="scripts/controllers/home-controller.js"></script>
+<script src="scripts/controllers/user-controller.js"></script>
+<script src="scripts/controllers/towns-controller.js"></script>
+<script src="scripts/controllers/categories-controller.js"></script>
+<script src="scripts/controllers/userProfile-controller.js"></script>
+<script src="scripts/controllers/userAds-controller.js"></script>
+<script src="scripts/controllers/userAdsNew-controller.js"></script>
+<script src="scripts/controllers/userAdsEdit-controller.js"></script>
+<script src="scripts/controllers/admin/adminAds-controller.js"></script>
+
+<!-- Directives -->
+<script src="scripts/directives/left-sidebar-directive.js"></script>
+<script src="scripts/directives/right-sidebar-directive.js"></script>
+<script src="scripts/directives/pagination-directive.js"></script>
+<script src="scripts/directives/towns-directive.js"></script>
+<script src="scripts/directives/categories-directive.js"></script>
+<script src="scripts/directives/adsStatuses-directive.js"></script>
+<script src="scripts/directives/ads-directive.js"></script>
+<script src="scripts/directives/admin/ads-directive.js"></script>
+
+<!-- Services -->
+<script src="scripts/services/categories-service.js"></script>
+<script src="scripts/services/towns-service.js"></script>
+<script src="scripts/services/ads-service.js"></script>
+<script src="scripts/services/user-service.js"></script>
+<script src="scripts/services/authentication.js"></script>
+<script src="scripts/services/messagingService.js"></script>
+<script src="scripts/services/userProfile-service.js"></script>
+<script src="scripts/services/errorMessaging-service.js"></script>
+<script src="scripts/services/userAds-service.js"></script>
+<script src="scripts/services/admin/adsAdmin-service.js"></script>
+
+
+</body>
+</html>
