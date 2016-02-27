@@ -1,1 +1,1 @@
-# user-management-app
+User management system using Angular Material and TypeScript
