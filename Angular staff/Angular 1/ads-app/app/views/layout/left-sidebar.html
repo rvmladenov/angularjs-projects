@@ -1,0 +1,18 @@
+<div class="list-group">
+  <h3 class="list-group-item-heading">Navigation</h3>
+  <a href="#/" ng-class="(getCurrentPath() == '/') ? 'list-group-item active' : 'list-group-item'">Home</a>
+  <a href="#/userAds" ng-class="(getCurrentPath() == '/userAds') ? 'list-group-item active' : 'list-group-item'" ng-if="isUserLoggedIn()">My Ads</a>
+  <a href="#/userAdsNew" ng-class="(getCurrentPath() == '/userAdsNew') ? 'list-group-item active' : 'list-group-item'" ng-if="isUserLoggedIn()">Publish New add</a>
+  <a href="#/userProfile" ng-class="(getCurrentPath() == '/userProfile') ? 'list-group-item active' : 'list-group-item'" ng-if="isUserLoggedIn()">Edit Profile</a>
+</div>
+
+<div class="list-group" ng-if="!isUserLoggedIn()">
+  <h3 class="list-group-item-heading">Profilе</h3>
+  <a href="#/login" ng-class="(getCurrentPath() == '/login') ? 'list-group-item active' : 'list-group-item'">Login</a>
+  <a href="#/register" ng-class="(getCurrentPath() == '/register') ? 'list-group-item active' : 'list-group-item'">Register</a>
+</div>
+
+<div ng-if="isUserLoggedIn() && getCurrentPath() == '/userAds'">
+  <ads-statuses-directive></ads-statuses-directive>
+</div>
+

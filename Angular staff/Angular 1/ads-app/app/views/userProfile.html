@@ -1,0 +1,109 @@
+﻿<!-- Profile information section -->
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+<div class="col-sm-6">
+
+  <form name="userLeftFormProfile" class="form-horizontal">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Profile</h3>
+      </div>
+
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="name">Name: <span class="text-danger">*</span></label>
+
+          <div class="col-sm-9">
+            <input type="text" ng-model="user.name" id="name" name="name" placeholder="Name" class="form-control"
+                   ng-required="true"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="email">Email: <span class="text-danger">*</span></label>
+
+          <div class="col-sm-9">
+            <input type="email" ng-model="user.email" id="email" name="email" placeholder="Email" class="form-control"
+                   ng-required="true" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="phone">Phone: <span class="text-danger">*</span></label>
+
+          <div class="col-sm-9">
+            <input type="text" ng-model="user.phoneNumber" id="phone" name="phone" placeholder="Phone"
+                   class="form-control" ng-required="true"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="town">Town: </label>
+
+          <div class="col-sm-9">
+            <select id="town" name="town" class="form-control"
+                    ng-options="town.id as town.name for town in townsDataArr" ng-model="user.townId">
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-6">
+            <button ng-click="updateUserProfile(user)" class="btn btn-primary">Update</button>
+            <a class="btn btn-default" href="#/">Cancel</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="col-sm-6">
+
+  <form name="userRightFormPassword" class="form-horizontal">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Password Change</h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="oldPassword">Old Password: <span
+            class="text-danger">*</span></label>
+
+          <div class="col-sm-9">
+            <input ng-model="userPassword.oldPassword" id="oldPassword" name="oldPassword" placeholder="Old Password"
+                   class="form-control input-md" ng-required="true" type="password"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="newPassword">New Password: <span
+            class="text-danger">*</span></label>
+
+          <div class="col-sm-9">
+            <input ng-model="userPassword.newPassword" id="newPassword" name="newPassword" placeholder="New Password"
+                   class="form-control input-md" ng-required="true" type="password"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3" for="confirmPassword">Confirm Password: <span class="text-danger">*</span></label>
+
+          <div class="col-sm-9">
+            <input ng-model="userPassword.confirmPassword" id="confirmPassword" name="confirmPassword"
+                   placeholder="Confirm Password" class="form-control input-md" ng-required="true" type="password"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-6">
+            <button ng-click="updateUserPassword(userPassword)" class="btn btn-primary">Update</button>
+            <a class="btn btn-default" href="#/">Cancel</a>
+          </div>
+        </div>
+
+      </div>
+  </form>
+
+</div>

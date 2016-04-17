@@ -1,0 +1,31 @@
+﻿<div class="col-sm-8 col-xs-12">
+  <div ng-show="!hasRecords">Nothing found. Try searching using some different search criteria</div>
+  <div ng-show="showPagination">
+    <pagination
+      page="startPage"
+      ng-model="currentPage"
+      total-items="adsData.numItems"
+      ng-change="pageChanged()"
+      items-per-page="pageSize"
+      ></pagination>
+  </div>
+
+  <div ng-if="!isUserAdmin()">
+    <ads-directive></ads-directive>
+  </div>
+
+  <div ng-if="isUserAdmin()">
+    <ads-admin-directive></ads-admin-directive>
+  </div>
+
+</div>
+<div class="col-sm-4" data-ng-include="sidebarLayout" id="right-sidebar"></div>
+<div class="col-md-12" data-ng-show="showPagination">
+  <pagination
+    page="startPage"
+    ng-model="currentPage"
+    total-items="adsData.numItems"
+    ng-change="pageChanged()"
+    items-per-page="pageSize"
+    ></pagination>
+</div>
