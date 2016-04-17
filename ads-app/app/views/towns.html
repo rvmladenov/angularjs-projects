@@ -1,6 +1,0 @@
-<div class="list-group">
-  <h3 class="list-group-item-heading">Towns</h3>
-
-    <div ng-class="!selectedTown ? 'list-group-item active' : 'list-group-item'" data-ng-click="getAdsByTownFilter(null)">All</div>
-  <div ng-class="(selectedTown && selectedTown == townObj.id)  ? 'list-group-item active' : 'list-group-item'" data-ng-click="getAdsByTownFilter(townObj)" data-ng-repeat="townObj in townsDataArr | orderBy:'name'">{{townObj.name}}</div>
-</div>

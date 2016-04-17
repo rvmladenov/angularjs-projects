@@ -1,1 +1,0 @@
-SoftUni Practical Project [Advertising App]
